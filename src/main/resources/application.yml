@@ -1,0 +1,46 @@
+server:
+  servlet:
+    context-path: /
+
+  port: 8881
+
+spring:
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+
+  # 配置数据库连接信息
+  datasource:
+    # local server configuration(Mysql)
+#    url: jdbc:mysql://cdb-fqh1b3fq.bj.tencentcdb.com:10104/RSS?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+#    username: root
+#    password: "root_RSS"
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    url: jdbc:mysql://rm-bp1k8ekx4r8x115r52o.mysql.rds.aliyuncs.com:3306/zx?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: "Cui123456"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 86400
+
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.configuration.ImprovedNamingStrategy
+
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
