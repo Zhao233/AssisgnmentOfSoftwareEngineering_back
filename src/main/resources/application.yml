@@ -9,7 +9,6 @@ spring:
 #    date-format: yyyy-MM-dd HH:mm:ss
 #    time-zone: GMT+8
 
-  # 配置数据库连接信息
   datasource:
     # local server configuration(Mysql)
 #    url: jdbc:mysql://cdb-fqh1b3fq.bj.tencentcdb.com:10104/RSS?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
