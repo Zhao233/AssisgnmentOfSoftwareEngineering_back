@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.domain.User;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -6,9 +6,9 @@ import javax.persistence.*;
 
 @Entity
 @Component
-@Table(name = "admin")
+@Table(name = "teacher")
 @Data
-public class Admin {
+public class Teacher {
     /**
      * 数据库id
      * */
@@ -17,29 +17,32 @@ public class Admin {
     private long id;
 
     /**
-     * 姓名
+     * 登录姓名
      * */
     @Column(name = "name")
     private String name;
 
     /**
-     * 姓名
+     * 密码
      * */
     @Column(name = "password")
     private String password;
 
     /**
-     * 姓名
+     * 是否由管理员同意
+     * */
+    @Column
+    private int isAuthorized;
+
+    /**
+     * 创建时间
      * */
     @Column(name = "create_time")
     private long createTime;
 
     /**
-     * 姓名
+     * 修改时间
      * */
     @Column(name = "update_time")
-    private String updateTime;
-
-
-
+    private long updateTime;
 }

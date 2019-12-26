@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Component
 @Table(name = "user")
 @Data
-public class User {
+public class User1 {
     /**
      * 数据库id
      * */

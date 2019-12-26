@@ -1,6 +1,6 @@
 package com.example.demo.service.implement;
 
-import com.example.demo.domain.User;
+import com.example.demo.domain.User1;
 import com.example.demo.repository.UserDao;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public User registerUser(User newUser) {
-        return userDao.save(newUser);
+    public User1 registerUser(User1 newUser1) {
+        return userDao.save(newUser1);
     }
 }

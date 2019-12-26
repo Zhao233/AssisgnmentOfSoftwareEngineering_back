@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.User;
+import com.example.demo.domain.User1;
 import com.example.demo.service.UserService;
 import com.example.demo.util.EncodeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,15 +60,15 @@ public class RegisterController {
 //                                            @RequestParam("password") String password){
         Map<Object,Object> map = new HashMap<>();
 
-        User user = new User();
-        user.setName(body.get("name"));
-        user.setEmail(body.get("email"));
-        user.setPhone(body.get("phone"));
-        user.setPassword(body.get("password"));
+        User1 user1 = new User1();
+        user1.setName(body.get("name"));
+        user1.setEmail(body.get("email"));
+        user1.setPhone(body.get("phone"));
+        user1.setPassword(body.get("password"));
 
-        user.setPassword( EncodeHelper.encode( user.getPassword() ) );
+        user1.setPassword( EncodeHelper.encode( user1.getPassword() ) );
 
-        if(userService.registerUser(user) != null) {
+        if(userService.registerUser(user1) != null) {
             map.put("result", "SUCCESS");
         } else {
             map.put("result", "FAILED");
