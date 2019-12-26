@@ -2,13 +2,14 @@ package com.example.demo.domain.User;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 @Entity
 @Component
 @Table(name = "admin")
 @Data
-public class Admin {
+public class Admin{
     /**
      * 数据库id
      * */
