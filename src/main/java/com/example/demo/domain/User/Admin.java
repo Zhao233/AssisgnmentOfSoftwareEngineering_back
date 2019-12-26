@@ -23,23 +23,21 @@ public class Admin {
     private String name;
 
     /**
-     * 姓名
+     * 登录密码
      * */
     @Column(name = "password")
     private String password;
 
     /**
-     * 姓名
+     * 创建时间
      * */
     @Column(name = "create_time")
     private long createTime;
 
     /**
-     * 姓名
+     * 修改时间
      * */
     @Column(name = "update_time")
     private long updateTime;
-
-
 
 }
