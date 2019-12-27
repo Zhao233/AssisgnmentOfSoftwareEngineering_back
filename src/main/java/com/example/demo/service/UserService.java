@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.User.UserInfo;
 import com.example.demo.domain.User1;
 
 public interface UserService {
@@ -8,4 +9,6 @@ public interface UserService {
     boolean checkIsPhoneExist(String phone);
 
     User1 registerUser(User1 newUser1);
+
+    UserInfo getUserInfoByName(String name);
 }

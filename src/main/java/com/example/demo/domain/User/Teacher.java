@@ -31,8 +31,11 @@ public class Teacher {
     /**
      * 是否由管理员同意
      * */
-    @Column
+    @Column(name = "is_authorized")
     private int isAuthorized;
+
+    @Column(name = "role")
+    private String role = "teacher";
 
     /**
      * 创建时间
@@ -45,4 +48,5 @@ public class Teacher {
      * */
     @Column(name = "update_time")
     private long updateTime;
+
 }

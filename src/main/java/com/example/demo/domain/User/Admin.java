@@ -23,6 +23,9 @@ public class Admin{
     @Column(name = "name")
     private String name;
 
+    @Column(name = "role")
+    private String role = "admin";
+
     /**
      * 登录密码
      * */

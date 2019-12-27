@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdminDao extends JpaRepository<Admin,Long> {
+    Admin findAdminByName(String name);
 }
