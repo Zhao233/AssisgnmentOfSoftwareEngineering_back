@@ -1,7 +1,7 @@
 package com.example.demo.authentication;
 
 import com.example.demo.domain.User.UserInfo;
-import com.example.demo.service.UserService;
+import com.example.demo.service.user.UserService;
 import com.example.demo.util.JwtUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,7 +44,7 @@ public class MyLoginSuccessHandler extends SavedRequestAwareAuthenticationSucces
 
         /* 获取已登录用户的信息，与token对应，并保存至redis中 */
         String username = httpServletRequest.getParameter("username");
-        UserInfo userInfo = userService.getUserInfoByName(username);
+        UserInfo userInfo = userService.getUserInfoFromDBByName(username);
         saveUserInfoToRedis(userInfo, token);
 
         httpServletResponse.addHeader("Authorization", token);

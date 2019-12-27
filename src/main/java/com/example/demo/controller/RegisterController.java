@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.User1;
-import com.example.demo.service.UserService;
+import com.example.demo.service.user.UserService;
 import com.example.demo.util.EncodeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
