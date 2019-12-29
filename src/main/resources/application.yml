@@ -26,6 +26,15 @@ spring:
       minimum-idle: 5
       connection-timeout: 86400
 
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.configuration.ImprovedNamingStrategy
+
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html

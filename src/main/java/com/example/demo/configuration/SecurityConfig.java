@@ -41,8 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 // 此处的角色不需要`ROLE_` 前缀,实现UserDetailsService设置角色时需要`ROLE_` 前缀
-                .antMatchers("/needAdminRole").hasRole("ADMIN")
-                .antMatchers("/needTestRole").hasRole("TEACHER")
+                .antMatchers("/admin/*").hasRole("ADMIN")
+                .antMatchers("/teacher/*").hasRole("TEACHER")
                 .antMatchers("/hello","/login","/loginInfo","/logoutSuccess")
                 .permitAll()
                 .anyRequest()
