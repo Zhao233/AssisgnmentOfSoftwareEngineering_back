@@ -15,6 +15,6 @@ public class TeacherServiceImp implements TeacherService {
 
     @Override
     public Page<ModelForTeacher> getAllTeacher(String search, Pageable pageable) {
-        return teacherDao.getAllByNameLike(search, pageable);
+        return teacherDao.getAllAuthorizedByNameLike(search, pageable);
     }
 }

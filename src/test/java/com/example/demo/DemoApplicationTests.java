@@ -28,7 +28,7 @@ class DemoApplicationTests {
 
         String name = "";
 
-        System.out.println(teacherDao.getAllByNameLike("%"+name+"%", pageRequest).getContent());
+        System.out.println(teacherDao.getAllAuthorizedByNameLike("%"+name+"%", pageRequest).getContent());
     }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,6 +55,19 @@ public class AdminController {
         } else {
             res.put("status", 500);
         }
+
+        return res;
+    }
+
+    @RequestMapping("deleteTeachers")
+    public Map<Object, Object> deleteTeachers(@RequestBody Map body) {
+        Map<Object, Object> res = new HashMap<>();
+
+        ArrayList<Integer> id_list = (ArrayList<Integer>) body.get("ids");
+
+        adminService.deleteTeacher(id_list);
+
+        res.put("status", 200);
 
         return res;
     }

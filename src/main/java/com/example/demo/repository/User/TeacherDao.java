@@ -17,8 +17,8 @@ public interface TeacherDao extends JpaRepository<Teacher,Long> {
             "teacher.phone, " +
             "teacher.email, " +
             "teacher.createTime, " +
-            "teacher.updateTime) FROM Teacher teacher WHERE teacher.name like ?1")
-    Page<ModelForTeacher> getAllByNameLike(String search, Pageable pageable);
+            "teacher.updateTime) FROM Teacher teacher WHERE teacher.name like ?1 AND teacher.isAuthorized = 1")
+    Page<ModelForTeacher> getAllAuthorizedByNameLike(String search, Pageable pageable);
 
 //    @Query(value = "SELECT teacher FROM Teacher teacher WHERE teacher.name like ?1")
 //    Page<Teacher> getAllByNameLike(String search, Pageable pageable);

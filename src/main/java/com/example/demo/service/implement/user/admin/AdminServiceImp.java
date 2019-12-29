@@ -10,6 +10,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("adminService")
 public class AdminServiceImp implements AdminService {
     @Autowired
@@ -19,7 +21,7 @@ public class AdminServiceImp implements AdminService {
     public Page<ModelForTeacher> getTeacherList(String search, int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
 
-        return teacherDao.getAllByNameLike("%"+search+"%", pageRequest);
+        return teacherDao.getAllAuthorizedByNameLike("%"+search+"%", pageRequest);
     }
 
     @Override
@@ -31,5 +33,12 @@ public class AdminServiceImp implements AdminService {
         teacher.setUpdateTime(TimeHelper.getNowTime());
 
         return teacherDao.save(teacher);
+    }
+
+    @Override
+    public void deleteTeacher(List<Integer> ids) {
+        for( Integer temp : ids){
+            teacherDao.deleteById(Long.valueOf(temp));
+        }
     }
 }
