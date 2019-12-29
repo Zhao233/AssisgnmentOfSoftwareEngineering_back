@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-public interface AdminService {
+public interface TeacherManageService {
     Page<ModelForTeacher> getTeacherList(String search, int offset, int pagesize);
 
     Teacher updateTeacher(long id, String name, String email, String phone);

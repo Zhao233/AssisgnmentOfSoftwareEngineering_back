@@ -3,7 +3,7 @@ package com.example.demo.service.implement.user.admin;
 import com.example.demo.domain.User.Teacher;
 import com.example.demo.model.user.admin.ModelForTeacher;
 import com.example.demo.repository.User.TeacherDao;
-import com.example.demo.service.user.admin.AdminService;
+import com.example.demo.service.user.admin.TeacherManageService;
 import com.example.demo.util.TimeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("adminService")
-public class AdminServiceImp implements AdminService {
+@Service("teacherManageService")
+public class TeacherManageServiceImp implements TeacherManageService {
     @Autowired
     private TeacherDao teacherDao;
 
@@ -41,4 +41,6 @@ public class AdminServiceImp implements AdminService {
             teacherDao.deleteById(Long.valueOf(temp));
         }
     }
+
+
 }

@@ -1,7 +1,7 @@
 package com.example.demo.controller.user.admin;
 
 import com.example.demo.model.user.admin.ModelForTeacher;
-import com.example.demo.service.user.admin.AdminService;
+import com.example.demo.service.user.admin.TeacherManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,9 +14,9 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/admin")
-public class AdminController {
+public class TeacherManageController {
     @Autowired
-    AdminService adminService;
+    TeacherManageService adminService;
 
     @RequestMapping("getTeacherList")
     public Map<Object, Object> getTeacherList(@RequestBody Map<String,Object> map){
