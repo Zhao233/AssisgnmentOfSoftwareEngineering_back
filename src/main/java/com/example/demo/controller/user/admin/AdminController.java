@@ -38,4 +38,23 @@ public class AdminController {
 
         return res;
     }
+
+    @RequestMapping("updateTeacher")
+    public Map<Object, Object> addTeacher(@RequestBody Map<String, Object> body) {
+        Map<Object, Object> res = new HashMap<>();
+
+
+        long id = (Integer)body.get("id")  ;
+        String name = (String) body.get("name");
+        String email = (String) body.get("email");
+        String phone = (String) body.get("phone");
+
+        if( adminService.updateTeacher(id,name,email,phone) != null){
+            res.put("status", 200);
+        } else {
+            res.put("status", 500);
+        }
+
+        return res;
+    }
 }

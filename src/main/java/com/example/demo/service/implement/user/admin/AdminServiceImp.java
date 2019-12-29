@@ -1,8 +1,10 @@
 package com.example.demo.service.implement.user.admin;
 
+import com.example.demo.domain.User.Teacher;
 import com.example.demo.model.user.admin.ModelForTeacher;
 import com.example.demo.repository.User.TeacherDao;
 import com.example.demo.service.user.admin.AdminService;
+import com.example.demo.util.TimeHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,5 +20,16 @@ public class AdminServiceImp implements AdminService {
         PageRequest pageRequest = PageRequest.of(page, size);
 
         return teacherDao.getAllByNameLike("%"+search+"%", pageRequest);
+    }
+
+    @Override
+    public Teacher updateTeacher(long id, String name, String email, String phone) {
+        Teacher teacher = teacherDao.getOne(id);
+        teacher.setName(name);
+        teacher.setEmail(email);
+        teacher.setPhone(phone);
+        teacher.setUpdateTime(TimeHelper.getNowTime());
+
+        return teacherDao.save(teacher);
     }
 }
