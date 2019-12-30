@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/admin/teacherManage")
 public class TeacherManageController {
     @Autowired
     TeacherManageService adminService;
@@ -41,7 +41,7 @@ public class TeacherManageController {
     }
 
     @RequestMapping("updateTeacher")
-    public Map<Object, Object> addTeacher(@RequestBody Map<String, Object> body) {
+    public Map<Object, Object> updateTeacher(@RequestBody Map<String, Object> body) {
         Map<Object, Object> res = new HashMap<>();
 
 

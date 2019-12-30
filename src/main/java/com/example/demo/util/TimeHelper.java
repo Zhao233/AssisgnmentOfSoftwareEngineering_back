@@ -4,6 +4,6 @@ import java.util.Date;
 
 public class TimeHelper {
     public static long getNowTime(){
-        return new Date().getTime();
+        return new Date().getTime()/1000;
     }
 }

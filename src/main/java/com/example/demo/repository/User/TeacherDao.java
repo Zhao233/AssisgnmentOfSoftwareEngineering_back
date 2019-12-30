@@ -5,6 +5,7 @@ import com.example.demo.model.user.admin.ModelForTeacher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -30,6 +31,9 @@ public interface TeacherDao extends JpaRepository<Teacher,Long> {
             "teacher.updateTime) FROM Teacher teacher WHERE teacher.name like ?1 AND teacher.isAuthorized = 0")
     Page<ModelForTeacher> getAllNotAuthorizedByNameLike(String search, Pageable pageable);
 
+    @Modifying
+    @Query(value = "UPDATE Teacher teacher SET teacher.isAuthorized = 1, teacher.updateTime = ?2 WHERE teacher.id = ?1")
+    void agreeTeacherRegister(long id, long updateTime);
 
 //    @Query(value = "SELECT teacher FROM Teacher teacher WHERE teacher.name like ?1")
 //    Page<Teacher> getAllByNameLike(String search, Pageable pageable);
