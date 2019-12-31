@@ -62,6 +62,7 @@ public class UserServiceImp implements UserService {
             userInfo = new UserInfo();
             userInfo.setName(teacher.getName());
             userInfo.setRole(teacher.getRole());
+            userInfo.setId(teacher.getId());
 
             return userInfo;
         }
@@ -69,6 +70,7 @@ public class UserServiceImp implements UserService {
         userInfo = new UserInfo();
         userInfo.setName(admin.getName());
         userInfo.setRole(admin.getRole());
+        userInfo.setId(admin.getId());
 
         return userInfo;
     }

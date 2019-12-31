@@ -20,4 +20,16 @@ public interface CompetitionInfoDao extends JpaRepository<CompetitionInfo, Long>
     Page<CompetitionInfo> getAllCompetitionItemByFatherId(String search, long id, Pageable pageable);
 
     List<CompetitionInfo> getAllByTypeEquals(int type);
+
+    /** For teacher */
+    @Query(value = "select competitionInfo.name from CompetitionInfo competitionInfo where competitionInfo.id = ?1")
+    String getNameById(long id);
+
+    List<CompetitionInfo> findAllByTypeEquals(int type);
+
+    @Query(value = "SELECT competitionInfo FROM CompetitionInfo competitionInfo WHERE " +
+            "competitionInfo.id " +
+            "IN " +
+            "(SELECT competitionRelation.lowerId FROM CompetitionRelation competitionRelation WHERE competitionRelation.upperId = ?1)")
+    List<CompetitionInfo> findAllItemByClassifyId(long id);
 }

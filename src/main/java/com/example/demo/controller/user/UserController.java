@@ -33,6 +33,14 @@ public class UserController {
         return res;
     }
 
+    @RequestMapping("/loginInfo")
+    public Map loginInfo(){
+        Map<String, Object> map = new HashMap<>();
+        map.put("status",200);
+
+        return map;
+    }
+
     @RequestMapping("/logoutSuccess")
     public Map<Object,Object> logoutSuccess(){
         Map<Object, Object> map = new HashMap<>();

@@ -102,7 +102,7 @@ public class CompetitionInfoManagement {
         return res;
     }
 
-    @RequestMapping("deleteTeachers")
+    @RequestMapping("deleteCompetitionInfo")
     public Map<Object, Object> deleteTeachers(@RequestBody Map body) {
         Map<Object, Object> res = new HashMap<>();
 

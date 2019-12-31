@@ -1,4 +1,4 @@
-package com.example.demo.service.implement.user.Competition;
+package com.example.demo.service.implement.user.admin;
 
 import com.example.demo.domain.Info.CompetitionInfo;
 import com.example.demo.domain.Info.CompetitionRelation;

@@ -10,6 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component("myLoginFailureHandler")
 public class MyLoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
@@ -25,13 +27,16 @@ public class MyLoginFailureHandler extends SimpleUrlAuthenticationFailureHandler
                                         AuthenticationException exception) throws IOException, ServletException {
         //1、json形式返回
         //服务器内部异常
-        response.setStatus(500);
+        response.setStatus(200);
         //设置返回类型
         response.setContentType("application/json;charset=UTF-8");
         //允许跨域
 //        response.setHeader("Access-Control-Allow-Origin", "*");
         //将错误信息写入
-        response.getWriter().write(objectMapper.writeValueAsString(exception.getMessage()));
 
+        Map<String, Object> map = new HashMap<>();
+        map.put("status",20001);
+
+        response.getWriter().write(objectMapper.writeValueAsString(map));
     }
 }
